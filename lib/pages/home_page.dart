@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import '../widgets/drawer.dart';
 import '../widgets/item_widget.dart';
+import 'dart:convert';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    // ignore: todo
+    // TODO: implement initState
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    var catalogJson = await rootBundle.loadString("assets/files/catalog.json");
+    var decodedData = jsonDecode(catalogJson);
+    var productsData = decodedData["products"];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +43,6 @@ class HomePage extends StatelessWidget {
               item: dummyList[index],
             );
           }),
-          
         ),
       ),
       drawer: const MyDrawer(),
