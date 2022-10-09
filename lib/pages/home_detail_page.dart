@@ -19,16 +19,18 @@ class HomeDetailPage extends StatelessWidget {
           children: [
             "\$${catalog.price}".text.bold.xl4.red800.make(),
             ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(MyTheme.darkBluishColor),
-                    shape: MaterialStateProperty.all(const StadiumBorder())),
-                onPressed: () {},
-                child: "Buy".text.make()).wh(100,50)
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        shape:
+                            MaterialStateProperty.all(const StadiumBorder())),
+                    onPressed: () {},
+                    child: "Buy".text.make())
+                .wh(100, 50)
           ],
         ).p32(),
       ),
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.transparent),
       backgroundColor: MyTheme.creamColor,
       body: SafeArea(
         bottom: false,
@@ -53,12 +55,17 @@ class HomeDetailPage extends StatelessWidget {
                         .make(),
                     catalog.desc.text.textStyle(context.captionStyle).xl.make(),
                     10.heightBox,
+                    "Ipsum est labore sanctus tempor sea eos amet diam no sea. Voluptua at erat dolore et dolores kasd, labore no sit sea diam ea dolor et. Lorem dolores amet magna tempor est dolor amet sit, diam sed kasd magna vero sanctus ipsum sit amet gubergren. Lorem justo vero dolor vero."
+                        .text
+                        .textStyle(context.captionStyle)
+                        .make()
+                        .p16(),
                   ],
-                ).py64(),
+                ).py32(),
               ),
             ))
           ],
-        ).p16(),
+        ),
       ),
     );
   }
