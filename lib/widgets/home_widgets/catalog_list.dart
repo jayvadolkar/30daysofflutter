@@ -16,12 +16,12 @@ class CatalogList extends StatelessWidget {
       itemBuilder: ((context, index) {
         final catalog = CatalogModel.items[index];
         return InkWell(
-          onTap: () => Navigator.push(
-            context, 
-            MaterialPageRoute(builder: (context) => HomeDetailPage(catalog: catalog),
-            )
-          ),
-          child: CatalogItem(catalog: catalog));
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeDetailPage(catalog: catalog),
+                )),
+            child: CatalogItem(catalog: catalog));
       }),
     );
   }
@@ -37,8 +37,8 @@ class CatalogItem extends StatelessWidget {
         child: Row(
       children: [
         Hero(
-          tag: Key(catalog.id.toString()),
-          child: CatalogImage(image: catalog.image)),
+            tag: Key(catalog.id.toString()),
+            child: CatalogImage(image: catalog.image)),
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,14 +53,13 @@ class CatalogItem extends StatelessWidget {
               children: [
                 "\$${catalog.price}".text.bold.xl.make(),
                 ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
-                    shape: MaterialStateProperty.all(const StadiumBorder())
-                  ),
-                  
-                  onPressed: () {}, 
-                  child: "Buy".text.make()
-                  )
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        shape:
+                            MaterialStateProperty.all(const StadiumBorder())),
+                    onPressed: () {},
+                    child: "Add to Cart".text.sm.make())
               ],
             ).pOnly(right: 8.0)
           ],
