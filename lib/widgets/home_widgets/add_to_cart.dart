@@ -7,7 +7,6 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/cart.dart';
 import '../../models/catalog.dart';
-import 'package:vxstate/vxstate.dart';
 
 class AddToCart extends StatelessWidget {
   final Item catalog;
@@ -18,10 +17,10 @@ class AddToCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VxState.watch(context, on: [AddMutation]);
+    VxState.watch(context, on: [AddMutation, RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
 
-    bool isInCart = CatalogModel.items.contains(catalog);
+    bool isInCart = _cart.items.contains(catalog);
     return ElevatedButton(
         style: ButtonStyle(
             backgroundColor:
