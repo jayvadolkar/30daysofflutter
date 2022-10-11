@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/models/cart.dart';
@@ -17,7 +17,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const _CartList().p24().expand(),
+          _CartList().p24().expand(),
           const Divider(),
           const _CartTotal(),
         ],
@@ -59,15 +59,11 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class _CartList extends StatefulWidget {
-  const _CartList();
+class _CartList extends StatelessWidget {
+   _CartList();
 
-  @override
-  State<_CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<_CartList> {
   final _cart = CartModel();
+
   @override
   Widget build(BuildContext context) {
     return _cart.items.isEmpty
